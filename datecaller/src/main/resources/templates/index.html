@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Client App</title>
+</head>
+<body>
+<h1>Client App</h1>
+<button onclick="fetchDate()">Get Current Date</button>
+<p id="response"></p>
+
+<script>
+    function fetchDate() {
+        fetch('/fetch-date')
+            .then(response => response.text())
+            .then(data => document.getElementById('response').innerText = data)
+            .catch(error => console.error('Error:', error));
+    }
+</script>
+</body>
+</html>
