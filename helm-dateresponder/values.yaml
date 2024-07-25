@@ -1,10 +1,10 @@
 replicaCount: 1
 
 image:
-  repository: nginx
+  repository: ghcr.io/bonanoel/dateresponder
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: ""
+  tag: "latest"
 
 appName: dateresponder
 nameSpace: app-service
