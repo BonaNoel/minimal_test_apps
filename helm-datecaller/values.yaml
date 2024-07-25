@@ -4,7 +4,7 @@ image:
   repository: ghcr.io/bonanoel/datecaller
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "latest"
+  tag: "beta"
 
 appName: datecaller
 nameSpace: app-ui
