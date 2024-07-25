@@ -17,4 +17,4 @@ gateway:
 
 virtualService:
   enabled: true
-  port: 8089
+  port: 80
