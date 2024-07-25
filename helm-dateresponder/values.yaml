@@ -9,7 +9,7 @@ image:
 appName: dateresponder
 nameSpace: app-service
 hosts:
-  - date-responder.app.kind.org
+  - dateresponder.app.kind.org
 
 gateway:
   enabled: true
