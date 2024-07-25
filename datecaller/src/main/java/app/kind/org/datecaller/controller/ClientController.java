@@ -10,7 +10,7 @@ public class ClientController {
     private final WebClient webClient;
 
     public ClientController(WebClient.Builder webClientBuilder) {
-        this.webClient = webClientBuilder.baseUrl("http://localhost:8089").build();
+        this.webClient = webClientBuilder.baseUrl("http://dateresponder.app.kind.org:31080").build();
     }
 
     @GetMapping("/fetch-date")
