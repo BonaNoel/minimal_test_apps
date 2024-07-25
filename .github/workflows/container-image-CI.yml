@@ -34,7 +34,7 @@ jobs:
       with:
         context: ./${{ matrix.service }}
         push: true
-        tags: ghcr.io/${{ env.OWNER_LC }}/{{ matrix.service }}:latest
+        tags: ghcr.io/${{ env.OWNER_LC }}/${{ matrix.service }}:latest
 
     - name: Logout from GitHub Container Registry
       run: docker logout ghcr.io
