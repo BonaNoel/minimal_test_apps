@@ -12,7 +12,7 @@ spec:
   http:
   - route:
     - destination:
-        host: {{ .Values.appName }}.{{ .Values.nameSpace }}.svc.clsuter.local
+        host: {{ .Values.appName }}.{{ .Values.nameSpace }}.svc.cluster.local
         port:
           number: {{ .Values.virtualService.port }}
 {{- end }}
