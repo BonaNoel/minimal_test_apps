@@ -10,9 +10,11 @@ spec:
     istio: ingressgateway
   servers:
   - hosts:
-    - {{ .Values.hosts | join "\n    - " }}
-    - port:
-        number: {{ .Values.gateway.port }}
-        name: http
-        protocol: HTTP
+    {{- range .Values.hosts }}
+    - {{ . }}
+    {{- end }}
+    port:
+      number: {{ .Values.gateway.port }}
+      name: http
+      protocol: HTTP
 {{- end }}
