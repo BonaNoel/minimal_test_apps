@@ -14,7 +14,7 @@ spec:
     - {{ . }}
     {{- end }}
     port:
-      number: 8089  #{{ .Values.gateway.port }}
+      number: {{ .Values.gateway.port }}
       name: http
       protocol: HTTP
 {{- end }}
