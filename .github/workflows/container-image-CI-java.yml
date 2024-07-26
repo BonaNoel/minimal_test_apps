@@ -1,4 +1,4 @@
-name: Build and Push Docker Images
+name: Build and Push Datecaller and Dateresponder Docker Images
 
 on:
   workflow_dispatch:
@@ -38,3 +38,15 @@ jobs:
 
     - name: Logout from GitHub Container Registry
       run: docker logout ghcr.io
+
+    - name: Install gh CLI
+      run: sudo apt-get install gh
+
+    - name: Set image to public
+      run: gh api \
+        -X PATCH \
+        -H "Accept: application/vnd.github+json" \
+        "/user/packages/container/${{ matrix.service }}/visibility" \
+        -f visibility=public
+      env:
+        GITHUB_TOKEN: ${{ secrets.GHCP_PAT }}
