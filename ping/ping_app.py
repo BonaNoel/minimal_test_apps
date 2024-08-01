@@ -10,7 +10,7 @@ def index():
 @app.route('/ping', methods=['POST'])
 def ping():
     player_name = request.form['player_name']
-    response = requests.post('http://ping.app.kind.org:31080/pong', json={'player_name': player_name})
+    response = requests.post('http://pong.app.kind.org:31080/pong', json={'player_name': player_name})
     return jsonify(response.json())
 
 if __name__ == '__main__':

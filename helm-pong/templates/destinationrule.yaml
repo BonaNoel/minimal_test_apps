@@ -1,0 +1,12 @@
+{{- if .Values.destinationRule.enabled }}
+apiVersion: networking.istio.io/v1
+kind: DestinationRule
+metadata:
+  name: {{ .Values.appName }}
+  namespace: {{ .Values.nameSpace }}
+spec:
+  host: {{ .Values.appName }}.{{ .Values.nameSpace }}.svc.cluster.local
+  trafficPolicy:
+    loadBalancer:
+      simple: {{ .Values.destinationRule.loadBalancer.policy }}
+{{- end }}

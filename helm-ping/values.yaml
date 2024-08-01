@@ -1,0 +1,23 @@
+replicaCount: 1
+
+image:
+  repository: ghcr.io/bonanoel/ping
+  pullPolicy: Always
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: "latest"
+
+imagePullSecrets:
+  name: ghcr-secret
+
+appName: ping
+nameSpace: app-service
+hosts:
+  - ping.kind.org
+
+gateway:
+  enabled: true
+  port: 80
+
+virtualService:
+  enabled: true
+  port: 80
