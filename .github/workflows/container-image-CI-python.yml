@@ -39,14 +39,13 @@ jobs:
     - name: Logout from GitHub Container Registry
       run: docker logout ghcr.io
 
-    - name: Install gh CLI
-      run: sudo apt-get install gh
-
     - name: Set image to public
-      run: gh api \
-        -X PATCH \
-        -H "Accept: application/vnd.github+json" \
-        "/user/packages/container/${{ matrix.service }}/visibility" \
-        -f visibility=public
       env:
         GITHUB_TOKEN: ${{ secrets.GHCP_PAT }}
+      run: |
+        gh api \
+          -X PATCH \
+          -H "Accept: application/vnd.github+json" \
+          -H "Authorization: token $GITHUB_TOKEN" \
+          "/user/packages/container/${{ env.OWNER_LC }}/${{ matrix.service }}/visibility" \
+          -f visibility=public
