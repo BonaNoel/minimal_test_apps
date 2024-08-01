@@ -23,6 +23,10 @@ spec:
           name: {{ .Values.appName }}
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
+            - name: POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
             - name: REDIS_HOST
               value: redis
             - name: REDIS_PORT
