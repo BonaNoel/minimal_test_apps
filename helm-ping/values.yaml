@@ -10,7 +10,7 @@ imagePullSecrets:
   name: ghcr-secret
 
 appName: ping
-nameSpace: app-service
+nameSpace: app-ui
 hosts:
   - ping.kind.org
 
