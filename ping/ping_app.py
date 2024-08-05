@@ -1,7 +1,9 @@
 from flask import Flask, request, render_template, jsonify
 import requests
+import logging
 
 app = Flask(__name__)
+logging.basicConfig(level=logging.INFO)
 
 @app.route('/')
 def index():
@@ -10,6 +12,7 @@ def index():
 @app.route('/ping', methods=['POST'])
 def ping():
     player_name = request.form['player_name']
+    logging.info(f'Received ping from player: {player_name}')
     try:
         response = requests.post(
             'http://pong.app.kind.org:31080/pong',
@@ -17,8 +20,10 @@ def ping():
             timeout=5  # Optional timeout for the request
         )
         response.raise_for_status()  # Raise an error for bad responses
+        logging.info(f'Received response from pong: {response.json()}')
         return jsonify(response.json())
     except requests.exceptions.RequestException as e:
+        logging.error(f'Error during request: {e}')
         return jsonify({'error': str(e)}), 500
 
 if __name__ == '__main__':
