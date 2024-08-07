@@ -1,8 +1,10 @@
 from flask import Flask, request, render_template, jsonify
+from flask_cors import CORS
 import requests
 import logging
 
 app = Flask(__name__)
+CORS(app)  # Enable CORS for all routes
 logging.basicConfig(level=logging.INFO)
 
 @app.route('/')
